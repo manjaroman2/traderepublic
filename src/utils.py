@@ -72,3 +72,13 @@ def create_video(paths_to_images: list[Path], outdir: Path, fps:int = 30):
     Path(list_file).unlink()
     print(f"Created video {output}")
     
+
+def display_bytesize(n_bytes):
+    units = ["B", "KB", "MB", "GB"]
+    unit = 0
+    out = float(n_bytes)
+    while out >= 1024 and unit < len(units) - 1:
+        out /= 1024
+        unit += 1
+    return f"{round(out, 1)} {units[unit]}"
+
